@@ -3,7 +3,6 @@ using Infrastructure.Services.Audio;
 using Infrastructure.Services.Audio.Type;
 using Infrastructure.Services.Level;
 using Infrastructure.Services.Score;
-using UnityEngine;
 using Zenject;
 
 namespace Infrastructure.States
@@ -12,7 +11,6 @@ namespace Infrastructure.States
     {
         private readonly GameStateMachine _gameStateMachine;
 
-        private readonly ISpawnPointService _spawnPoint;
         private readonly IGameResetService _gameResetService;
         private readonly IAudioService _audioService;
         private readonly IStageObserverService _stageService;
@@ -43,18 +41,6 @@ namespace Infrastructure.States
         public void Exit()
         {
             _gameResetService.OnRestart -= ToRestart;
-        }
-
-        private void ToWinSate()
-        {
-            _audioService.PlayOneShot(AudioClipShot.Win);
-            Debug.LogWarning("Win");
-        }
-
-        private void ToLoseState()
-        {
-            _audioService.PlayOneShot(AudioClipShot.Lose);
-            Debug.LogWarning("Lose");
         }
     }
 }

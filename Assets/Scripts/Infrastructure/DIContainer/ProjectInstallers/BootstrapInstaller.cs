@@ -2,7 +2,6 @@
 using Infrastructure.DIContainer.Extensions;
 using Infrastructure.Factory;
 using Infrastructure.Services.Audio;
-using Infrastructure.Services.Input;
 using Infrastructure.Services.Level;
 using Infrastructure.Services.Menu;
 using Infrastructure.Services.Score;
@@ -35,7 +34,6 @@ namespace Infrastructure.DIContainer.ProjectInstallers
 
             Container.BindService<IAudioService, AudioService>(_audioService);
 
-            Container.BindService<ISpawnPointService, SpawnPointService>();
             Container.BindService<IGameResetService, GameResetService>();
 
             Container.BindService<IStageObserverService, StageObserverService>();

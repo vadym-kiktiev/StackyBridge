@@ -22,7 +22,15 @@ namespace Infrastructure.Services.Score
 
         public Queue<IStage> GetStages() => new(_stages);
 
-        public IStage GetNextStage(IStage stage) => _stages[_stages.IndexOf(stage) + 1];
+        public IStage GetNextStage(IStage stage)
+        {
+            var nextStageIndex = _stages.IndexOf(stage) + 1;
+
+            if (nextStageIndex >= _stages.Count)
+                nextStageIndex = 0;
+
+            return _stages[nextStageIndex];
+        }
 
         public void RegisterStages(List<IStage> stages)
         {
